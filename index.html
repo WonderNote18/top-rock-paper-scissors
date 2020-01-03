@@ -4,8 +4,31 @@
     <body>
         <script>
             function computerPlay() {
-                let choiceList = ['Rock', 'Paper', 'Scissors'];
+                let choiceList = ['ROCK', 'PAPER', 'SCISSORS'];
                 return choiceList[Math.floor(Math.random() * 3)];
+            }
+
+            function playRound(playerSelection, computerSelection) {
+                playerSelection = playerSelection.toUpperCase();
+                let roundResult = "";
+
+                if (playerSelection === computerSelection) {
+                    roundResult = "tie";
+                } else {
+                    switch (playerSelection) {
+                        case ("ROCK"):
+                            (computerSelection === "PAPER") ? roundResult = "lose" : roundResult = "win";
+                            break;
+                        case ("PAPER"):
+                            (computerSelection === "SCISSORS") ? roundResult = "lose" : roundResult = "win";
+                            break;
+                        case ("SCISSORS"):
+                            (computerSelection === "ROCK") ? roundResult = "lose" : roundResult = "win";
+                            break;
+                        default:
+                            console.log("Invalid selection. Please select 'rock', 'paper', or 'scissors'.");
+                    }
+                }
             }
         </script>
     </body>
