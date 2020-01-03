@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>Rock Paper Scissors</head>
+    <head>
+        <title>
+            Rock Paper Scissors
+        </title>
+    </head>
     <body>
         <script>
             let playerSelection = "";
@@ -49,27 +53,30 @@
                     console.log("Computer picked " + computerSelection);
                     
                     if (roundResult === "tie") {
-                        console.log("TIE! No points added.");
+                        console.log("No points added.");
                     } else if (roundResult === "win") {
                         ++playerScore;
-                        console.log("WIN! Point added to Player!");
+                        console.log("Point added to Player!");
                     } else {
                         ++computerScore;
-                        console.log("LOSS! Point added to Computer!");
+                        console.log("Point added to Computer!");
                     }
                 }
 
                 if (playerScore === computerScore) {
+                    alert("You TIED!");
                     console.log("You TIED!");
                 } else if (playerScore > computerScore) {
+                    alert("You WIN!");
                     console.log("You WIN!");
                 } else {
+                    alert("You LOSE!");
                     console.log("You LOSE!");
                 }
-                
                 console.log("Player score: " + playerScore);
                 console.log("Computer Score: " + computerScore);
             }
+            game();
         </script>
     </body>
 </html>
