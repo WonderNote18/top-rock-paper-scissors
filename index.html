@@ -4,79 +4,36 @@
         <title>
             Rock Paper Scissors
         </title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <script>
-            let playerSelection = "";
-            let computerSelection = "";
-
-            function computerPlay() {
-                let choiceList = ['ROCK', 'PAPER', 'SCISSORS'];
-                return choiceList[Math.floor(Math.random() * 3)];
-            }
-
-            function playRound(playerSelection, computerSelection) {
-                playerSelection = playerSelection.toUpperCase();
-                let roundResult = "";
-
-                if (playerSelection === computerSelection) {
-                    roundResult = "tie";
-                } else {
-                    switch (playerSelection) {
-                        case ("ROCK"):
-                            (computerSelection === "PAPER") ? roundResult = "lose" : roundResult = "win";
-                            break;
-                        case ("PAPER"):
-                            (computerSelection === "SCISSORS") ? roundResult = "lose" : roundResult = "win";
-                            break;
-                        case ("SCISSORS"):
-                            (computerSelection === "ROCK") ? roundResult = "lose" : roundResult = "win";
-                            break;
-                        default:
-                            console.log("Invalid selection.");
-                            roundResult = "loss";
-                    }
-                }
-                return roundResult;
-            }
-
-            function game() {
-                let playerScore = 0;
-                let computerScore = 0;
-                let roundResult = ""
-                for (i=0;i<5;++i) {
-                    playerSelection = prompt("Please select 'rock', 'paper', or 'scissors'.");
-                    computerSelection = computerPlay();
-
-                    roundResult = playRound(playerSelection, computerSelection);
-                    console.log("You picked " + playerSelection);
-                    console.log("Computer picked " + computerSelection);
-                    
-                    if (roundResult === "tie") {
-                        console.log("No points added.");
-                    } else if (roundResult === "win") {
-                        ++playerScore;
-                        console.log("Point added to Player!");
-                    } else {
-                        ++computerScore;
-                        console.log("Point added to Computer!");
-                    }
-                }
-
-                if (playerScore === computerScore) {
-                    alert("You TIED!");
-                    console.log("You TIED!");
-                } else if (playerScore > computerScore) {
-                    alert("You WIN!");
-                    console.log("You WIN!");
-                } else {
-                    alert("You LOSE!");
-                    console.log("You LOSE!");
-                }
-                console.log("Player score: " + playerScore);
-                console.log("Computer Score: " + computerScore);
-            }
-            game();
-        </script>
+        <div id="titleContainer">
+            <h1 class="titleText">Rock Paper Scissors</h1>
+        </div>
+        <div id="titleSpacing"></div>
+        <div id="scoreContainer">
+            <div id="playerScore">
+                <h2 class="scoreText">Player</h2>
+                <h3 class="scoreNum" id="scorePlayer">0</h3>
+            </div>
+            <div id="cpuScore">
+                <h2 class="scoreText">CPU</h2>
+                <h3 class="scoreNum" id="scoreComputer">0</h3>
+            </div>
+        </div>
+        <div id="scoreSpacing"></div>
+        <div id="gameContainer">
+            <div id="gameButtons">
+                <button class ="inputBtn" id="ROCK">ROCK</button>
+                <button class ="inputBtn" id="PAPER">PAPER</button>
+                <button class ="inputBtn" id="SCISSORS">SCISSORS</button>
+            </div>
+            <div id="gameText">
+                <p id="gt1">Click on "Rock" "Paper" or "Scissors"</p>
+                <p id="gt2">No points awarded on tie.</p>
+                <p id="gt3">Get 5 points to win!</p>
+            </div>
+        </div>
+        <script src="script.js"></script>
     </body>
 </html>
